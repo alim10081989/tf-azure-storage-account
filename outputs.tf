@@ -21,9 +21,10 @@ output "unix_vm_backend_config" {
             storage_account_name = "${azurerm_storage_account.tfstate.name}"
             container_name       = "${azurerm_storage_container.unix-tfstate.name}"
             key                  = "terraform.tfstate"
+            access_key           = "${azurerm_storage_account.unix-tfstate.primary_access_key}"
   }
     EOT
-    sensitive = true
+    sensitive = false
 }
 
 output "win_vm_backend_config" {
@@ -33,7 +34,8 @@ output "win_vm_backend_config" {
             storage_account_name = "${azurerm_storage_account.tfstate.name}"
             container_name       = "${azurerm_storage_container.win-tfstate.name}"
             key                  = "terraform.tfstate"
+            access_key           = "${azurerm_storage_account.unix-tfstate.primary_access_key}"
   }
     EOT
-    sensitive = true
+    sensitive = false
 }
