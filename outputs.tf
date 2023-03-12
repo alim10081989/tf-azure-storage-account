@@ -24,7 +24,7 @@ output "unix_vm_backend_config" {
             access_key           = "${azurerm_storage_account.unix-tfstate.primary_access_key}"
   }
     EOT
-    sensitive = false
+    sensitive = true
 }
 
 output "win_vm_backend_config" {
@@ -37,5 +37,5 @@ output "win_vm_backend_config" {
             access_key           = "${azurerm_storage_account.unix-tfstate.primary_access_key}"
   }
     EOT
-    sensitive = false
+    sensitive = true
 }
