@@ -28,14 +28,8 @@ resource "azurerm_storage_account" "tfstate" {
   }
 }
 
-resource "azurerm_storage_container" "unix-tfstate" {
-  name                  = "unix-tfstate"
-  storage_account_name  = azurerm_storage_account.tfstate.name
-  container_access_type = "private"
-}
-
-resource "azurerm_storage_container" "win-tfstate" {
-  name                  = "win-tfstate"
+resource "azurerm_storage_container" "tfstate" {
+  name                  = "tfstate-container"
   storage_account_name  = azurerm_storage_account.tfstate.name
   container_access_type = "private"
 }
